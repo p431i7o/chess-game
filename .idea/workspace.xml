@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bafcfe6a-64ea-4f81-b15d-007d4c592eb9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ChessEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ChessEngine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ChessMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ChessMain.py" afterDir="false" />
+    <list default="true" id="bafcfe6a-64ea-4f81-b15d-007d4c592eb9" name="Changes" comment="Fin del video dos&#10;Ya se pueden mover piezas, pero no hay control sobre los limites de movimientos.">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "p431i7o"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/p431i7o/chess-game.git",
+    "accountId": "bf3acb35-3de5-438a-b55f-7e7a12605666"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
@@ -69,14 +79,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732366070046</updated>
-      <workItem from="1732366071304" duration="12249000" />
+      <workItem from="1732366071304" duration="12490000" />
     </task>
+    <task id="LOCAL-00001" summary="Fin del video dos&#10;Ya se pueden mover piezas, pero no hay control sobre los limites de movimientos.">
+      <option name="closed" value="true" />
+      <created>1732405194120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732405194121</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fin del video dos&#10;Ya se pueden mover piezas, pero no hay control sobre los limites de movimientos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fin del video dos&#10;Ya se pueden mover piezas, pero no hay control sobre los limites de movimientos." />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ChessProject$ChessMain.coverage" NAME="ChessMain Coverage Results" MODIFIED="1732405030292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chess" />
+    <SUITE FILE_PATH="coverage/ChessProject$ChessMain.coverage" NAME="ChessMain Coverage Results" MODIFIED="1732405094506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Chess" />
   </component>
 </project>
