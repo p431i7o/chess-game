@@ -45,6 +45,7 @@ def main():
         for event in p.event.get():
             if event.type == p.QUIT:
                 running = False
+            #mouse handler
             elif event.type == p.MOUSEBUTTONDOWN:
                 location = p.mouse.get_pos()  #(x,y)
                 col = location[0] // SQ_SIZE
@@ -61,6 +62,10 @@ def main():
                     gs.make_move(move)
                     sq_selected = () #reset user clicks
                     player_clicks = []
+            #keys handler
+            elif event.type == p.KEYDOWN:
+                if event.key == p.K_z: #undo when 'z' is pressed
+                    gs.undo_move()
 
         draw_game_state(screen, gs)
 
