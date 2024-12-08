@@ -17,10 +17,12 @@ class GameState:
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "bp", "--", "--", "--", "--"],
             ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
             ["wR", "wN", "wB", "wQ", "wK", "wB", "wN", "wR"],
         ]
+        self.moveFunctions = {'p':self.get_pawn_moves,'R':self.get_rook_moves,'N':self.get_knight_moves,
+                              'B':self.get_bishop_moves,'Q':self.get_queen_moves,'K':self.get_king_moves}
         self.whiteToMove = True
         self.moveLog = []
 
@@ -43,6 +45,61 @@ class GameState:
             self.board[move.end_row][move.end_col] = move.piece_captured
             self.whiteToMove = not self.whiteToMove #switch turns back
 
+    '''
+    All moves considering checks
+    '''
+    def get_valid_moves(self):
+        return self.get_all_possible_moves() #for now we will not worry about checks
+
+    '''
+    All moves without considering checks
+    '''
+    def get_all_possible_moves(self):
+        moves = [Move((6,4),(4,4),self.board)]
+        for row in range(len(self.board)): #number of rows
+            for col in range(len(self.board[row])): #number of cols in a given row
+                turn = self.board[row][col][0] #w or b, it could be also called color
+                if (turn=='w' and self.whiteToMove) or (turn=='b' and not self.whiteToMove):
+                    piece = self.board[row][col][1]
+                    self.moveFunctions[piece](row, col, moves)#calls the appropiate move function based on the piece type
+        return moves
+
+    '''
+    Get all the pawn moves for the pawn located at row, col and add these moves to the list
+    '''
+    def get_pawn_moves(self, row, col, moves):
+        if self.whiteToMove:
+            if self.board[row-1][col] == "--": #1 square pawn advance
+                moves.append(Move((row,col),(row-1,col),self.board))
+                if row == 6 and self.board[row-2][col] == "--": #2 square pawn advance
+                    moves.append(Move((row,col),(row-2,col),self.board))
+            if col-1 >=0:#captures to the lef
+                if self.board[row-1][col-1][0]=="b":#enemy piece to capture
+                    moves.append(Move((row,col),(row-1,col-1),self.board))
+            if col+1<=7:#Captures to the right
+                if self.board[row-1][col+1][0]=="b":#enemy piece to capture
+                    moves.append(Move((row,col),(row-1,col+1),self.board))
+
+
+    '''
+    Get all the rook moves for the rook located at row, col and add these moves to the list
+    '''
+    def get_rook_moves(self, row, col, moves):
+        pass
+
+    def get_knight_moves(self, row, col,moves):
+        pass
+
+    def get_bishop_moves(self, row, col, moves):
+        pass
+
+    def get_queen_moves(self, row, col, moves):
+        pass
+
+    def get_king_moves(self, row, col, moves):
+        pass
+
+
 class Move():
     # maps  keys to values
     # key: value
@@ -60,6 +117,15 @@ class Move():
 
         self.piece_moved = board[self.start_row][self.start_col]
         self.piece_captured = board[self.end_row][self.end_col]
+        self.moveID = self.start_row*1000 + self.start_col*100 + self.end_row*10 + self.end_col
+        print(self.moveID)
+    '''
+    Overriding the equal method
+    '''
+    def __eq__(self, other):
+        if isinstance(other,Move):
+            return self.moveID == other.moveID
+        return False
 
     def get_chess_notation(self):
         #You can add to make more like real chess notation

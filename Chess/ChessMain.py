@@ -37,6 +37,9 @@ def main():
     screen.fill(p.Color('white'))
 
     gs = ChessEngine.GameState()
+    valid_moves = gs.get_valid_moves()
+    move_made = False #Flag variable for when a move is made
+
     load_images()  # Only do this once before the while loop
     running = True
     sq_selected = ()  #no square is selected, keep track of the last click of the user (tuple: row,col)
@@ -59,13 +62,20 @@ def main():
                 if len(player_clicks) == 2: #After the second click
                     move = ChessEngine.Move(player_clicks[0], player_clicks[1], gs.board)
                     print(move.get_chess_notation())
-                    gs.make_move(move)
+                    if move in valid_moves:
+                        gs.make_move(move)
+                        move_made = True
                     sq_selected = () #reset user clicks
                     player_clicks = []
             #keys handler
             elif event.type == p.KEYDOWN:
                 if event.key == p.K_z: #undo when 'z' is pressed
                     gs.undo_move()
+                    move_made = True
+
+        if move_made:
+            valid_moves = gs.get_valid_moves()
+            move_made = False
 
         draw_game_state(screen, gs)
 
